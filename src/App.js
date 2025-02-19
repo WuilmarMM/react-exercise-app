@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import RepetitionExercise from "./components/RepetitionExercise/index.js";
+
+const exercise = [
+  { name: "Push-Ups", type: "repetition" },
+  { name: "Running", type: "duration" },
+  { name: "Plank", type: "duration" },
+]; 
 
 function App() {
+
+  const [selectExercise, setSelectExercise] = useState(null);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    {!selectExercise ? (
+      <h1>no exercise selected</h1>
+      ) : (
+          <div>
+            <RepetitionExercise />
+          </div>
+      )
+      };
     </div>
   );
-}
+};
 
 export default App;
